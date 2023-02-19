@@ -20,6 +20,7 @@ namespace _02_ModellemeCodeFirst.Data
 
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<Setting2> Setting2s { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

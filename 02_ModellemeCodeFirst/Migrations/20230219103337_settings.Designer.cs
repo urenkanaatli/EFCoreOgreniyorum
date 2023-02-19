@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _02_ModellemeCodeFirst.Data;
 
@@ -10,9 +11,11 @@ using _02_ModellemeCodeFirst.Data;
 namespace _02_ModellemeCodeFirst.Migrations
 {
     [DbContext(typeof(ExampleAppDbContext))]
-    partial class ExampleAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230219103337_settings")]
+    partial class settings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,23 +89,6 @@ namespace _02_ModellemeCodeFirst.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Settings");
-                });
-
-            modelBuilder.Entity("_02_ModellemeCodeFirst.Data.Models.Setting2", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Setting2s");
                 });
 
             modelBuilder.Entity("_02_ModellemeCodeFirst.Data.Models.User", b =>
